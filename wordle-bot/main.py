@@ -39,15 +39,19 @@ async def on_message(message):
 
     if message.content.startswith('$easy'):
         CHOICE = word.getword(1, WORDS)
-        await message.channel.send(CHOICE)
+        await message.channel.send("||" + CHOICE + "||")
 
     if message.content.startswith('$word'):
         CHOICE = word.getword(2, WORDS)
-        await message.channel.send(CHOICE)
+        await message.channel.send("||" + CHOICE + "||")
 
     if message.content.startswith('$hard'):
         CHOICE = word.getword(3, WORDS)
-        await message.channel.send(CHOICE)
+        await message.channel.send("||" + CHOICE + "||")
+
+    if message.content.startswith('$ex'):
+        CHOICE = word.getword(4, WORDS)
+        await message.channel.send("||" + CHOICE + "||")
 
 client.run(os.getenv('TOKEN'))
 
