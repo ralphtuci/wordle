@@ -29,6 +29,12 @@ def checkcons(CHOICE):
             return False
     return True
 
+def checkconz(CHOICE):
+    for c in CHOICE:
+        if (c == 'q' or c == 'w' or c == 'x' or c == 'v' or c == 'z'):
+            return True
+    return False
+
 # check for number of vowels
 def checkvow(CHOICE):
     vow = 0
@@ -63,7 +69,18 @@ def getword(switch, WORDS):
             if checkdupe(CHOICE):
                 break
             else:
-                pass  
+                pass
+    # extra hard
+    elif (switch == 4):
+        while (1):
+            if checkdupe(CHOICE):
+                if checkconz(CHOICE):
+                    break
+            else:
+                pass
+
+
+              
             CHOICE = bytes.decode(random.choice(WORDS))
     else:
         print ("Incorrect choice. This should never show up, but if it does, I just want to let you know you're a complete failure.")
