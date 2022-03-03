@@ -45,43 +45,40 @@ def checkvow(CHOICE):
             return True
     return False
 
-# get specific word depending on choice
-def getword(switch, WORDS):
-    CHOICE = bytes.decode(random.choice(WORDS))
-    # easy
-    if   (switch == 1):
-        while (1):
-            if checkdupe(CHOICE):
+def geteasy(words):
+    while 1:
+        choice = bytes.decode(random.choice(words))
+        if checkdupe(choice):
+            pass
+        else:
+            if checkcons(choice):
                 pass
             else:
-                if checkcons(CHOICE):
-                    pass
-                else:
-                    if checkvow(CHOICE):
-                        break
-            CHOICE = bytes.decode(random.choice(WORDS))
-    # normal
-    elif (switch == 2):
-        pass
-    # hard
-    elif (switch == 3):
-        while (1):
-            if checkdupe(CHOICE):
+                if checkvow(choice):
+                    break
+    return choice
+
+
+def getword(words):
+    return bytes.decode(random.choice(words))
+
+
+def gethard(words):
+    while 1:
+        choice = bytes.decode(random.choice(words))
+        if checkdupe(choice):
+            break
+        else:
+            pass
+    return choice
+
+
+def getex(words):
+    while 1:
+        choice = bytes.decode(random.choice(words))
+        if checkdupe(choice):
+            if checkconz(choice):
                 break
             else:
                 pass
-    # extra hard
-    elif (switch == 4):
-        while (1):
-            if checkdupe(CHOICE):
-                if checkconz(CHOICE):
-                    break
-            else:
-                pass
-
-
-              
-            CHOICE = bytes.decode(random.choice(WORDS))
-    else:
-        print ("Incorrect choice. This should never show up, but if it does, I just want to let you know you're a complete failure.")
-    return CHOICE
+    return choice
